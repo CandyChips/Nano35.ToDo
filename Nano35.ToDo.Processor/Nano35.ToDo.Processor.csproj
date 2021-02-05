@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nano35.ToDo.RequestContracts\Nano35.ToDo.RequestContracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contexts" />
+    <Folder Include="Requests" />
+  </ItemGroup>
+
+</Project>
