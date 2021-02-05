@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nano35.ToDo.Processor.Models
+namespace Nano35.ToDo.Processor.Models.Chat
 {
     public class Chat :
         ICastable,

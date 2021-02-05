@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nano35.ToDo.Processor.Models
+namespace Nano35.ToDo.Processor.Models.User
 {
     public class User : 
         ICastable,
@@ -11,9 +11,9 @@ namespace Nano35.ToDo.Processor.Models
         public bool IsDeleted { get; set; }
         
         public Guid RoleId { get; set; }
-        public Role Role { get; set; }
+        public Role.Role Role { get; set; }
         
         public Guid StatusId { get; set; }
-        public Status Status { get; set; }
+        public Status.Status Status { get; set; }
     }
 }
