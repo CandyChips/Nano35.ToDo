@@ -5,11 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Nano35.ToDo.Common\Nano35.ToDo.Common.csproj" />
     <ProjectReference Include="..\Nano35.ToDo.RequestContracts\Nano35.ToDo.RequestContracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Requests" />
+    <PackageReference Include="MassTransit" Version="7.1.5-develop.3285" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.1.5-develop.3285" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.5-develop.3285" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.5-develop.3285" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Request\GetUserById" />
   </ItemGroup>
 
 </Project>
