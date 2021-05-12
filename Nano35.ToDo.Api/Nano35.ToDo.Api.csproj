@@ -1,22 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MassTransit" Version="7.1.5-develop.3285" />
-    <PackageReference Include="MassTransit.AspNetCore" Version="7.1.5-develop.3285" />
-    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.5-develop.3285" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.5-develop.3285" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
+    <PackageReference Include="MassTransit" Version="7.1.8" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.1.8" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.8" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.8" />
+    <PackageReference Include="Nano35.Contracts" Version="3.0.7" />
+    <PackageReference Include="Nano35.HttpContext" Version="2.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Nano35.ToDo.Common\Nano35.ToDo.Common.csproj" />
-    <ProjectReference Include="..\Nano35.ToDo.HttpContracts\Nano35.ToDo.HttpContracts.csproj" />
-    <ProjectReference Include="..\Nano35.ToDo.RequestContracts\Nano35.ToDo.RequestContracts.csproj" />
   </ItemGroup>
 
 </Project>

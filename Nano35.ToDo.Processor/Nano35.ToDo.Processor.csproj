@@ -1,23 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nano35.ToDo.Common\Nano35.ToDo.Common.csproj" />
-    <ProjectReference Include="..\Nano35.ToDo.RequestContracts\Nano35.ToDo.RequestContracts.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MassTransit" Version="7.1.5-develop.3285" />
-    <PackageReference Include="MassTransit.AspNetCore" Version="7.1.5-develop.3285" />
-    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.5-develop.3285" />
-    <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.5-develop.3285" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Request\GetUserById" />
+    <PackageReference Include="MassTransit" Version="7.1.8" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.1.8" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.8" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+    <PackageReference Include="Nano35.Contracts" Version="3.0.7" />
   </ItemGroup>
 
 </Project>

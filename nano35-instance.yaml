@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nano35-todo-api
+  namespace: nano35
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nano35-todo-api
+  template:
+    metadata:
+      labels:
+        app: nano35-todo-api
+    spec:
+      containers:
+        - image: bushemi2021/nano35.todo.api:latest
+          name: nano35-todo-api
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+      
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: nano35
+  name: nano35-todo-api-svc
+spec:
+  type: NodePort
+  ports:
+    - port: 8000
+      targetPort: 80
+      nodePort: 30002
+  selector:
+    app: nano35-todo-api
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nano35-todo-processor
+  namespace: nano35
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nano35-todo-processor
+  template:
+    metadata:
+      labels:
+        app: nano35-todo-processor
+    spec:
+      containers:
+        - image: bushemi2021/nano35.todo.processor:latest
+          name: nano35-todo-processor
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
