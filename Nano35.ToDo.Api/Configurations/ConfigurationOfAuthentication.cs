@@ -1,7 +1,9 @@
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Nano35.Contracts;
 
 namespace Nano35.ToDo.Api.Configurations
@@ -9,7 +11,7 @@ namespace Nano35.ToDo.Api.Configurations
     public class AuthOptions
     {
         public static SymmetricSecurityKey GetSymmetricSecurityKey(string key) =>
-            new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key));
+            new(Encoding.ASCII.GetBytes(key));
     }
     
     public class AuthenticationConfiguration : 
@@ -38,7 +40,6 @@ namespace Nano35.ToDo.Api.Configurations
                         ValidateLifetime = false
                     };
                 });
-            services.AddScoped<ICustomAuthStateProvider, CookiesAuthStateProvider>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }

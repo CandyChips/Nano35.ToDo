@@ -14,7 +14,7 @@ namespace Nano35.ToDo.Processor.UseCases.GetAllMessages
 {
     public class GetAllMessages : UseCaseEndPointNodeBase<IGetAllMessagesRequestContract, IGetAllMessagesResultContract>
     {
-        private record MessageDto(Guid Id, DateTime Date, string Text, Guid InstanceId, Guid FromId, Guid ToId);
+        private record MessageDto(Guid Id, DateTime Date, string Text, Guid InstanceId, Guid FromId, Guid ToId, DateTime Seen);
         private readonly ApplicationContext _context;
         private readonly IBus _bus;
         public GetAllMessages(ApplicationContext context, IBus bus) { _context = context; _bus = bus; }
@@ -24,8 +24,9 @@ namespace Nano35.ToDo.Processor.UseCases.GetAllMessages
         {
             var messages = _context
                 .Messages
-                .Select(a => new MessageDto(a.Id, a.Date, a.Text, a.InstanceId, a.FromUserId, a.ToUserId))
+                .Select(a => new MessageDto(a.Id, a.Date, a.Text, a.InstanceId, a.FromUserId, a.ToUserId, a.Seen))
                 .ToList();
+            
             var result = new List<Message>();
             foreach (var item in messages)
             {
@@ -41,6 +42,9 @@ namespace Nano35.ToDo.Processor.UseCases.GetAllMessages
                 var getInstanceStringByIdRequestContract = new MasstransitUseCaseRequest<IGetInstanceStringByIdRequestContract, IGetInstanceStringByIdResultContract>(_bus, new GetInstanceStringByIdRequestContract() {InstanceId = item.InstanceId}).GetResponse().Result;
                 if (getToUserStringByIdRequestContract.IsSuccess()) res.To += $" (+7{getToUserStringByIdRequestContract.Success.Data})";
                 else return Pass(getToUserStringByIdRequestContract.Error);
+
+                var message = _context.Messages.First(g => g.Id == item.Id);
+                message.Seen = DateTime.Now;
                 
                 result.Add(res);
             }

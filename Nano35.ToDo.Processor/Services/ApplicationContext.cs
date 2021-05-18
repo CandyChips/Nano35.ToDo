@@ -10,6 +10,7 @@ namespace Nano35.ToDo.Processor.Services
         
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
             Update();
         }

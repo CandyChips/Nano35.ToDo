@@ -33,13 +33,7 @@ namespace Nano35.ToDo.Processor.Configurations
                 }));
                 x.AddConsumer<AddMessageConsumer>();
                 x.AddConsumer<GetAllMessagesConsumer>();
-                x.AddRequestClient<IGetClientByIdRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/IGetClientByIdRequestContract"));
-                x.AddRequestClient<IGetUnitByIdRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/IGetUnitByIdRequestContract"));
-                x.AddRequestClient<IGetUnitStringByIdRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/ICreateClientRequestContract"));
-                x.AddRequestClient<IGetClientStringByIdRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/ICreateClientRequestContract"));
-                x.AddRequestClient<IGetUserByIdRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/IGetUserByIdRequestContract"));
-                x.AddRequestClient<ICreateComingCashOperationRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/ICreateComingCashOperationRequestContract"));
-                x.AddRequestClient<IGetImagesOfStorageItemRequestContract>(new Uri($"{ContractBase.RabbitMqLocation}/IGetImagesOfStorageItemRequestContract"));
+                
             });
             services.AddMassTransitHostedService();
         }

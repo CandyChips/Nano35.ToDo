@@ -13,6 +13,7 @@ namespace Nano35.ToDo.Processor.Models
         public Guid ToUserId { get; init; }
         public string Text { get; init; }
         public DateTime Date { get; set; }
+        public DateTime Seen { get; set; }
         public Message() { }
         public class Configuration : IEntityTypeConfiguration<Message>
         {
